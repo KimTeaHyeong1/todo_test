@@ -1,0 +1,160 @@
+@charset "utf-8";
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+		font-family: 'Noto Sans KR', sans-serif;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+  --main-color: rgb(254, 207, 75);
+  --sub-color: rgb(252, 203, 2);
+  --main-font-color: rgb(53, 41, 2);
+  --main-form-color: rgb(244, 244, 244);
+}
+
+body {
+    background-color: var(--main-color);
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    position: relative;
+}
+
+.hide {
+    display: none !important;
+}
+
+.d-day-form {
+    width: 25rem;
+    padding: 2rem;
+    border: 2px solid var(--main-font-color);
+    background-color: var(--main-form-color);
+    border-radius: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1 {
+    margin-bottom: 2rem;
+}
+
+fieldset {
+    border: none;
+    margin-bottom: 1.5rem;
+    width: 100%;
+}
+
+.image-uploader {
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: center;
+}
+
+#imageUploader {
+    display: none;
+}
+
+.image-upload-box {
+    width: 10rem;
+    height: 10rem;
+    border: 2px dotted var(--main-font-color);
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+legend {
+    color: var(--main-font-color);
+    margin-bottom: 1rem;
+}
+
+input[type="text"], input[type="number"] {
+    height: 3rem;
+    font-size: 1rem;
+    background-color: var(--main-form-color);
+    padding: 1rem;
+}
+input[type="number"]{
+    width: 6rem;
+}
+input {
+    border-radius: 1rem;
+    border: 1px solid rgb(216, 216, 216);
+}
+
+#submitButton {
+    width: 100%;
+    height: 3rem;
+    background-color: rgb(216, 216, 216);
+    border-radius: 1rem;
+}
+
+.profile {
+    display: flex;
+    gap: 3rem;
+}
+
+.profile-image {
+    width: 20rem;
+}
+
+.profile-image img {
+    width: 100%;
+}
+
+.profile-info-detail {
+    margin-bottom: 10rem;
+}
+
+.profile-info h1 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.birthday, .time {
+    font-size: 1.5rem;
+}
+
+.introduction {
+    font-weight: bold;
+    color: tomato;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.time-table {
+    display: flex;
+    gap: 1rem;
+}
+
+.time-table-element {
+    width: 6rem;
+    height: 6rem;
+    font-size: 1.5rem;
+    background-color: rgb(53, 41, 2);
+    color: var(--sub-color);
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.d-day-header {
+    position: fixed;             /* 화면 상단에 고정 */
+    top: 0;
+    left: 0;
+    width: 100%;
+}

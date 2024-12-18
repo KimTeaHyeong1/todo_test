@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.todo_test.todo.TodoMapper">
+<insert id="insertTodo" parameterType="com.example.todo_test.todo.VO.TodoVO">
+    INSERT INTO todo_list.todo (TODO_USER_SEQ, TODO_CONTENT)
+    VALUES (#{userSeq}, #{content})
+</insert>
+
+<select id="selectTodo" parameterType="Long" resultType="HashMap">
+    SELECT * FROM todo_list.TODO
+    WHERE TODO_USER_SEQ = #{userSeq}
+</select>
+
+    <select id="selectAllTodos" resultType="HashMap">
+        SELECT * FROM todo_list.todo
+    </select>
+
+<delete id="deleteTodo" parameterType="Long">
+    DELETE FROM todo_list.todo
+    WHERE TODO_SEQ = #{todoSeq}
+</delete>
+
+<update id="updateTodo" parameterType="Long">
+    UPDATE todo_list.todo
+    SET TODO_STATE = CASE
+        WHEN TODO_STATE = 1 THEN 0
+        WHEN TODO_STATE = 0 THEN 1
+        ELSE TODO_STATE
+    END
+    WHERE TODO_SEQ = #{todoSeq}
+</update>
+</mapper>

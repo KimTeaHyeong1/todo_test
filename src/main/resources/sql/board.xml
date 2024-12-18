@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.todo_test.board.BoardMapper">
+
+    <insert id="insertBoard" parameterType="map">
+        INSERT INTO todo_list.board (BOARD_HEAD, BOARD_BODY, USER_ID, IMAGE_PATH)
+        VALUES (#{boardHd}, #{boardBd}, #{userId}, #{imagePath});
+    </insert>
+
+    <select id="boardNumber" parameterType="Integer" resultType="HashMap">
+        SELECT * FROM todo_list.board
+        WHERE BOARD_SEQ = #{boardSeq}
+    </select>
+
+    <select id="boardShow" resultType="HashMap">
+        SELECT * FROM todo_list.board
+    </select>
+
+    <!-- 게시글 수정 -->
+    <update id="updateBoard" parameterType="map">
+        UPDATE todo_list.board
+        SET BOARD_HEAD = #{boardHd}, BOARD_BODY = #{boardBd}, IMAGE_PATH = #{imagePath}
+        WHERE BOARD_SEQ = #{boardSeq};
+    </update>
+
+    <!-- 게시글 삭제 -->
+    <delete id="deleteBoard" parameterType="Integer">
+        DELETE FROM todo_list.board WHERE BOARD_SEQ = #{boardSeq};
+    </delete>
+
+    <!-- 게시글 조회수 증가 -->
+    <update id="incrementViews" parameterType="Integer">
+        UPDATE todo_list.board
+        SET VIEWS = VIEWS + 1
+        WHERE BOARD_SEQ = #{boardSeq};
+    </update>
+</mapper>

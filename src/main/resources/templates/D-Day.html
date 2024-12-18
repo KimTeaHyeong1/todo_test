@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css"> <!-- 수정된 부분 -->
+    <style>
+        :root {
+            --main-purple: #9370DB;
+            --dark-purple: #7B68EE;
+            --light-purple: #E6E6FA;
+        }
+
+        body {
+            background-color: var(--light-purple);
+            min-height: 100vh;
+        }
+
+        .navbar,
+        .footer {
+            background-color: var(--main-purple);
+        }
+
+        .btn-custom {
+            background-color: var(--main-purple);
+            border-color: var(--main-purple);
+        }
+
+        .btn-custom:hover {
+            background-color: var(--dark-purple);
+            border-color: var(--dark-purple);
+        }
+
+        .completed {
+            text-decoration: line-through;
+            color: #6c757d;
+        }
+    </style>
+</head>
+<style>
+    .material-symbols-outlined {
+        font-variation-settings:
+                'FILL' 0,
+                'wght' 400,
+                'GRAD' 0,
+                'opsz' 24
+    }
+</style>
+<body>
+<header class="d-day-header">
+    <th:block th:insert="~{fragments/nav}"></th:block>
+</header>
+<div class="d-day-form">
+    <h1>D-Day 계산기</h1>
+    <form>
+        <fieldset class="image-uploader">
+            <input type="file" name="file" accept="image/*" required id="imageUploader">
+            <div class="image-upload-box">
+                <span class="material-symbols-outlined icon-add">add</span>
+                <p>이미지 업로드</p>
+            </div>
+        </fieldset>
+        <fieldset>
+            <legend>이름</legend>
+            <input type="text" name="name" placeholder="이름을 입력하세요" id="name">
+        </fieldset>
+        <fieldset>
+            <legend>생년월일</legend>
+            <input type="number" name="year" placeholder="YYYY" min="1900" max="2024" id="year">
+            <input type="number" name="month" placeholder="MM" min="1" max="12" id="month">
+            <input type="number" name="day" placeholder="DD" min="1" max="31" id="day">
+        </fieldset>
+        <fieldset>
+            <legend>시간</legend>
+            <input type="number" name="hour" placeholder="HH" min="0" max="23" id="hour">시
+            <input type="number" name="minute" placeholder="MM" min="0" max="59" id="minute">분
+        </fieldset>
+        <button type="submit" id="submitButton">태어난 지 얼마나 됐을까?</button>
+    </form>
+</div>
+<div class="profile hide">
+    <li class="nav-item">
+        <a class="nav-link active" href="/"><i class="bi bi-house-door me-1"></i>홈</a>
+    </li>
+    <div class="profile-image">
+        <img src="#" id="image">
+    </div>
+    <div class="profile-info">
+        <div class="profile-info-detail">
+            <h1 class="name-text">이름</h1>
+            <p class="birthday">1998.01.15</p>
+            <p class="time">13시 30분</p>
+        </div>
+        <div class="profile-info-time-table">
+            <p class="introduction">당신이 살아온 시간은?</p>
+            <ul class="time-table">
+                <li class="time-table-element year">00년</li>
+                <li class="time-table-element month">0월</li>
+                <li class="time-table-element day">00일</li>
+                <li class="time-table-element hour">0시</li>
+                <li class="time-table-element minute">00분</li>
+            </ul>
+        </div>
+    </div>
+</div>
+<script src="/js/index.js"></script> <!-- 수정된 부분 -->
+</body>
+</html>
